@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/main_characters">
+
+    <fragment
+        android:id="@+id/character_details"
+        android:name="com.example.pokemon_project.character_details"
+        android:label="fragment_character_details"
+        tools:layout="@layout/fragment_character_details" >
+        <action
+            android:id="@+id/action_character_details_to_main_characters"
+            app:destination="@id/main_characters" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="Null" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            android:defaultValue="Null" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="fullDescription"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_characters"
+        android:name="com.example.pokemon_project.main_characters"
+        android:label="fragment_main_characters"
+        tools:layout="@layout/fragment_main_characters" >
+        <action
+            android:id="@+id/action_main_characters_to_character_details"
+            app:destination="@id/character_details" />
+    </fragment>
+</navigation>
